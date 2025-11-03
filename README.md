@@ -8,7 +8,7 @@ This repo contains a collection of my college and personal projects and group pr
 ## 🚀 Featured Projects
 
 | Project | Description | Tech Stack | Link |
-|----------|--------------|-------------|------|
+|------------|--------------|-------------|------|
 | **CLDV6212** <br> [Personal Project] | Wed app for a retail store that is hosted via Azure. | C#, Azure, ASP.NET Core | [View](https://github.com/VCPTA/bca2-cldv6212-poe-submission-jiabou/tree/master) |
 | **PROG6212** <br> [Personal Project] | Web app for a Contract Monthly Claims System for lecturers. | C#, ASP.NET Core, MySQL | [View](https://github.com/VCPTA/bca2-prog6212-poe-submission-jiabou/tree/master) |
 | **PROG6221** <br> [Personal Project] | Console App for storing igredients and steps of recipes. | C# | [View](https://github.com/VCPTA/bca2-prog6221-poe-submission-jiabou.git) |
