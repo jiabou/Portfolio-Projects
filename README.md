@@ -9,10 +9,14 @@ This repo contains a collection of my college and personal projects showcasing m
 
 | Project | Description | Tech Stack | Link |
 |----------|--------------|-------------|------|
-| **FarmConnect App** | Android app connecting farmers with green energy experts. | Kotlin, Firebase, REST API | [View](projects/farmconnect-app) |
-| **WPF Event Organizer** | Desktop app for managing events using C# and WPF. | C#, .NET, MVVM | [View](projects/wpf-event-organizer) |
-| **Country Population Manager** | Console app using a SortedDictionary for data management. | C# | [View](projects/country-population) |
-| **Weather Data Analysis** | Python notebook analyzing weather trends. | Python, Pandas, Matplotlib | [View](projects/weather-analysis) |
+| **CLDV6212** | Android app connecting farmers with green energy experts. | Kotlin, Firebase, REST API | [View](https://github.com/VCPTA/bca2-cldv6212-poe-submission-jiabou/tree/master) |
+| **PROG6212** | Desktop app for managing events using C# and WPF. | C#, .NET, MVVM | [View](https://github.com/VCPTA/bca2-prog6212-poe-submission-jiabou/tree/master) |
+| **PROG6221** | Console app using a SortedDictionary for data management. | C# | [View](https://github.com/VCPTA/bca2-prog6221-poe-submission-jiabou.git) |
+| **PROG7312** | Python notebook analyzing weather trends. | Python, Pandas, Matplotlib | [View]() |
+| **PROG7313** | Android app connecting farmers with green energy experts. | Kotlin, Firebase, REST API | [View]() |
+| **PROG7314** | Desktop app for managing events using C# and WPF. | C#, .NET, MVVM | [View](https://github.com/jiabou/PROG7314.git) |
+| **INSY7314** | Console app using a SortedDictionary for data management. | C# | [View](https://github.com/Silver-Pond/INSY7314_PPOE_Part_2.git) |
+| **INSY7315** | Python notebook analyzing weather trends. | Python, Pandas, Matplotlib | [View](https://github.com/st10258321/INSY7315.git) |
 
 ---
 
