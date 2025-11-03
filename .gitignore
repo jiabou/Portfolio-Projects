@@ -1,0 +1,14 @@
+# Ignore build output folders
+bin/
+obj/
+
+# Ignore publish output
+**/PubTmp/
+**/publish/
+
+# Ignore user-specific config files
+*.user
+*.config
+*.env
+*.json
+appsettings.Development.json
