@@ -12,10 +12,10 @@ This repo contains a collection of my college and personal projects and group pr
 | **CLDV6212** <br> [Personal Project] | Wed app for a retail store that is hosted via Azure. | C#, Azure, ASP.NET Core | [View](https://github.com/VCPTA/bca2-cldv6212-poe-submission-jiabou/tree/master) |
 | **PROG6212** <br> [Personal Project] | Web app for a Contract Monthly Claims System for lecturers. | C#, ASP.NET Core, MySQL | [View](https://github.com/VCPTA/bca2-prog6212-poe-submission-jiabou/tree/master) |
 | **PROG6221** <br> [Personal Project] | Console App for storing igredients and steps of recipes. | C# | [View](https://github.com/VCPTA/bca2-prog6221-poe-submission-jiabou.git) |
-| **PROG7312** <br> [Personal Project] | Desktop app created for a muncipality that displays events, takes report and shows service request status. | C#, .NET | [View]() |
-| **PROG7313** <br> [Group Project] | Android app for a montly budgeting with expense tracking. | Kotlin, Firebase | [View]() |
-| **PROG7314** <br> [Group Project] | Adroid fitness app that tracks calories and shows different workouts. | Kotlin, Firebase, REST API | [View](https://github.com/jiabou/PROG7314.git) |
-| **INSY7314** <br> [Group Project] | Web app for a worker and customer portal for security implementation. | C#, .NET, GitHub Actions | [View](https://github.com/Silver-Pond/INSY7314_PPOE_Part_2.git) |
+| **PROG7312** <br> [Personal Project] | Desktop app created for a muncipality that displays events, takes report and shows service request status. (In Development) | C#, .NET | [View](https://github.com/VCPTA/bca3-prog7313-portfolio-of-evidence-poe-jiabou.git) |
+| **PROG7313** <br> [Group Project] | Android app for a montly budgeting with expense tracking. | Kotlin, Firebase | [View](https://github.com/VCPTA/bca3-prog7313-portfolio-of-evidence-poe-jiabou.git) |
+| **PROG7314** <br> [Group Project] | Adroid fitness app that tracks calories and shows different workouts. (In Development) | Kotlin, Firebase, REST API | [View](https://github.com/jiabou/PROG7314.git) |
+| **INSY7314** <br> [Group Project] | Web app for a worker and customer portal for security implementation. (In Development) | C#, .NET, GitHub Actions | [View](https://github.com/Silver-Pond/INSY7314_PPOE_Part_2.git) |
 | **INSY7315** <br> [Group Project] | Anroid app which is HustleHub, a platform created for students to become clients and providers. | Kotlin, Firebase, REST API, GitHub Actions | [View](https://github.com/st10258321/INSY7315.git) |
 
 ---
