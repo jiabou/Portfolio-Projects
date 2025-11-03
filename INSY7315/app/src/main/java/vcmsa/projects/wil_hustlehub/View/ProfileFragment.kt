@@ -1,0 +1,198 @@
+package vcmsa.projects.wil_hustlehub.View
+
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import vcmsa.projects.wil_hustlehub.Adapters.ProfileServiceAdapter
+import vcmsa.projects.wil_hustlehub.MainActivity
+import vcmsa.projects.wil_hustlehub.R
+import vcmsa.projects.wil_hustlehub.Repository.BookServiceRepository
+import vcmsa.projects.wil_hustlehub.Repository.ChatRepository
+import vcmsa.projects.wil_hustlehub.Repository.ReviewRepository
+import vcmsa.projects.wil_hustlehub.Repository.ServiceRepository
+import vcmsa.projects.wil_hustlehub.Repository.UserRepository
+import vcmsa.projects.wil_hustlehub.ViewModel.UserViewModel
+import vcmsa.projects.wil_hustlehub.ViewModel.ViewModelFactory
+import vcmsa.projects.wil_hustlehub.databinding.FragmentProfileBinding
+import kotlin.getValue
+
+class ProfileFragment: Fragment() {
+    private var serviceProId : String? = null
+    // Declare the binding variable
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the fragment_profile.xml layout.
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val userRepo = UserRepository()
+        val serviceRepo = ServiceRepository()
+        val bookRepo = BookServiceRepository()
+        val reviewRepo = ReviewRepository()
+        val chatRepo = ChatRepository()
+
+        val viewModelFactory = ViewModelFactory(userRepo, serviceRepo, bookRepo,reviewRepo,chatRepo)
+        val userViewModel: UserViewModel by viewModels { viewModelFactory }
+        //get user data from the view model
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val userid = sharedPreferences.getString("uid", null)
+        Log.d("ProfileFragment", "User ID: $userid")
+        serviceProId = arguments?.getString("serviceProfiderID")
+        val isOwner = serviceProId.isNullOrEmpty() || serviceProId == userid
+
+        binding.reportUserLayout.isVisible = !isOwner
+        binding.messageProviderBtn.isVisible = !isOwner
+        binding.userBookingsBtn.isVisible = isOwner
+
+        binding.userBookingsBtn.setOnClickListener {
+            val intent = Intent(requireContext(), UserBookingsActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.messageProviderBtn.setOnClickListener {
+           val chatID = userViewModel.createChat(serviceProId!!)
+            userViewModel.chatIdLive.observe(viewLifecycleOwner){ (success, message) ->
+                if(success){
+                    val bundle = Bundle().apply {
+                        putString("chatID", message)
+                        putString("serviceProviderId", serviceProId)
+                    }
+                    val fragment = ChatFragment().apply {
+                        arguments = bundle
+                    }
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment,fragment)
+                        .addToBackStack(null)
+                        .commit()
+
+
+                }
+            }
+            //Toast.makeText(requireContext(), "Chat ID: $chatID", Toast.LENGTH_SHORT).show()
+            //navigate to chat fragment
+        }
+
+        val adapter = ProfileServiceAdapter(emptyList(),
+            onBookServiceClick = { service ->
+            val fragment = BookServiceFragment()
+            val bundle = Bundle()
+            bundle.putString("serviceID", service.serviceId)
+            fragment.arguments = bundle
+            val mainActivity = requireActivity() as MainActivity
+            mainActivity.supportFragmentManager.beginTransaction()
+                .replace(mainActivity.binding.navHostFragment.id, fragment)
+                .addToBackStack(null)
+                .commit()
+        },
+            onLeaveReviewClick = { service ->
+                val fragment = AddReviewFragment()
+                val bundle = Bundle()
+                bundle.putString("serviceID",service.serviceId)
+                bundle.putString("serviceName",service.serviceName)
+                fragment.arguments = bundle
+                val mainActivity = requireActivity() as MainActivity
+                mainActivity.supportFragmentManager.beginTransaction()
+                    .replace(mainActivity.binding.navHostFragment.id, fragment)
+                    .addToBackStack(null)
+                    .commit()
+            },
+            {service ->
+                userViewModel.deleteService(service.serviceId)
+                userViewModel.serviceStatus.observe(viewLifecycleOwner) {
+                    if (it.first) {
+                        Toast.makeText(requireContext(), "Service deleted", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            },
+            isOwner = isOwner
+        )
+        binding.profileServicesRecycler.layoutManager = LinearLayoutManager(requireContext(),
+            LinearLayoutManager.VERTICAL,false )
+        binding.profileServicesRecycler.isNestedScrollingEnabled = false
+        binding.profileServicesRecycler.adapter = adapter
+        try{
+            //first check if this page was navigated from the browser service page,if not display the logged in user data
+
+            if(!serviceProId.isNullOrEmpty()) {
+                userViewModel.getMyServices(serviceProId!!)
+                userViewModel.getUserData(serviceProId!!).observe(viewLifecycleOwner) { user ->
+                    //fill the page with the service providers information as well as the report user section
+                    binding.providerName.text = user?.name
+                    if(user?.aboutMe.isNullOrEmpty()){
+                        binding.aboutMeTxt.text = "No About Me"
+                    }else{
+                        binding.aboutMeTxt.text = user?.aboutMe
+                    }
+                    userViewModel.userServices.observe(viewLifecycleOwner){services ->
+                            adapter.updateServices(services ?: emptyList())
+                    }
+                    binding.profileServicesRecycler.adapter = adapter
+                }
+            }else{
+                if(userid != null) {
+                    Log.d("","")
+                    userViewModel.getMyServices(userid)
+                    userViewModel.getUserData(userid).observe(viewLifecycleOwner) { user ->
+                        //fill the page with the user's section, check if they have any services they provide and fill that section too.
+                        binding.providerName.text = user?.name
+                        if(user?.aboutMe.isNullOrEmpty()){
+                            binding.aboutMeTxt.text = "No About Me"
+                        }else{
+                            binding.aboutMeTxt.text = user?.aboutMe
+                        }
+                        userViewModel.userServices.observe(viewLifecycleOwner) { services ->
+                            adapter.updateServices(services ?: emptyList())
+                        }
+                        binding.profileServicesRecycler.adapter = adapter
+                    }
+                }
+            }
+        }catch(e : Exception){
+            Log.d("ProfiileFragment- Service Provider error", e.message.toString())
+        }
+
+        //report user action
+        binding.reportUserBtn.setOnClickListener {
+            val intent = Intent(requireContext(), ReportUserActvity::class.java)
+            intent.putExtra("serviceProId", serviceProId)
+            startActivity(intent)
+        }
+        binding.viewReviewsBtn.setOnClickListener {
+            val fragment = ReviewsFragment()
+            val bundle = Bundle()
+            if(isOwner){
+                bundle.putString("serviceId", userid)
+            }else{
+                bundle.putString("serviceId", serviceProId)
+            }
+            fragment.arguments = bundle
+            Log.d("check-reviews", "serviceId being sent: ${bundle.getString("serviceId")}")
+
+            val mainActivity = requireActivity() as MainActivity
+            mainActivity.supportFragmentManager.beginTransaction()
+                .replace(mainActivity.binding.navHostFragment.id, fragment)
+                .addToBackStack(null)
+                .commit()
+
+        }
+
+
+    }
+}

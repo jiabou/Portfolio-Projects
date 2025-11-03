@@ -1,0 +1,115 @@
+﻿@page
+@model PrivacyModel
+<style>     /* (w3Schools, ND) */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .container {
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    input[type=number]{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>  @* (w3Schools, ND) *@
+    <form method="post" asp-page-handler="Logout">
+        <button style="float:right">Log Out</button>
+    </form>
+    <h1 style="text-align:center">Claims Page</h1>
+    <h4 style="color:dodgerblue">Welcome @Model.name</h4>
+
+    @if (Model.errorHours == false)
+    {
+        <div class='alert alert-danger alert-dismissible fade show' role="alert" style="padding=50px">
+            <strong>Invalid username or password.</strong>
+            <button type="button" class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+    }
+
+    <br />
+    <br />
+    <h3>Current Claims</h3>
+            <form>
+        <div style="background-color:lightgrey">
+            <table class="table" style="background-color:azure"
+                    <thead style="text-align:center">
+                        <tr>
+                            <th>Claim ID</th>
+                            <th>Amount</th>
+                            <th>Notes</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            @foreach (var item in Model.claims)
+                            {
+                            <tr>
+                                <td>@item.claimID</td>
+                                <td>R @item.amount</td>
+                                <td>@item.notes</td>
+                                <td>@item.status</td>
+                            </tr>
+                            }
+                     </tbody>
+                </table>
+                </div>
+            </form>
+            <br />
+    <div class="container">
+        <form method="post">
+            <label style="font-weight:bold" for="hWorked">Hours Worked :</label>
+            <input type="number" id="hWorked" name="hoursworked" value="0">
+            <br />
+            <label style="font-weight:bold"  for="hRate">Hourly Rate :    </label>
+            <input type="number" id="hRate" name="hourlyRate" value="0">
+            <br />
+            <label style="font-weight:bold"  for="myFile">Select Supporting Document</label><br />
+            <input type="file" id="filename" name="filename">
+            <br />
+            <br />
+            <label style="font-weight:bold" for="notes">Notes:</label>
+            <textarea id="notes" name="notes" style="height:200px" placeholder="Enter any additional notes here..." ></textarea>
+            <br />
+
+            <input style="width:100%" type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>

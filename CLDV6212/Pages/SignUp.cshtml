@@ -1,0 +1,35 @@
+﻿@page
+@model ABCRetail.Pages.SignUpModel
+<link href="~/css/abcsignup.css" rel="stylesheet" />
+
+<form action="/action_page.php" style="max-width:1000px;margin:auto">
+    <h1 style ="font-size:80px;font-style:oblique;font-weight:bolder;text-align:center">Register Form</h1>
+
+    <div class="input-container">
+        <i class="fa fa-envelope icon"></i>
+        <input class="input-field" type="email" placeholder="Email" name="email">
+    </div>
+
+    <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input class="input-field" type="text" placeholder="Username" name="usrnm">
+    </div>
+
+    <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input class="input-field" type="password" placeholder="Password" name="psw">
+    </div>
+
+    <div class="input-container">
+        <i class="fa fa-calendar-o icon"></i>
+        <input class="input-field" type="date" placeholder="Date of Birth" name="dob">
+    </div>
+
+    <div class="input-container">
+        <i class="fa fa-home icon"></i>
+        <input class="input-field" type="text" placeholder="Address" name="adr">
+    </div>
+
+    <button type="submit" class="btn">Register</button>
+    <h3 style="font-size:25px;text-align:center">Already have an account?<a asp-area="" asp-page="/Login" href; data-abc="true">Login</a></h3>
+</form>

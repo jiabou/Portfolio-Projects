@@ -1,0 +1,78 @@
+﻿<Window x:Class="ST10209811_PROG6211_POE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ST10209811_PROG6211_POE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="528" Width="800">
+    <TabControl Margin="0,0,0,-62">
+        <TabItem Header="Create Recipe">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="Qauntity :" HorizontalAlignment="Left" Margin="41,115,0,0" VerticalAlignment="Top" Width="140"/>
+                <Label Content="Measurement :" HorizontalAlignment="Left" Margin="41,150,0,0" VerticalAlignment="Top" Width="140"/>
+                <Label Content="Calories :" HorizontalAlignment="Left" Margin="41,186,0,0" VerticalAlignment="Top" Width="140"/>
+                <Label Content="Ingredient :" HorizontalAlignment="Left" Margin="41,84,0,0" VerticalAlignment="Top" Width="140"/>
+                <ComboBox x:Name="cbbF" HorizontalAlignment="Left" Margin="254,229,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+                <Label Content="Food Group :" HorizontalAlignment="Left" Margin="41,225,0,0" VerticalAlignment="Top" Width="140"/>
+                <TextBox x:Name="txtI" HorizontalAlignment="Left" Margin="254,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtQ" HorizontalAlignment="Left" Margin="254,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtC" HorizontalAlignment="Left" Margin="254,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Step :" HorizontalAlignment="Left" Margin="42,368,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.552,0.09"/>
+                <TextBox x:Name="txtS" HorizontalAlignment="Left" Margin="122,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="67"/>
+                <ComboBox x:Name="cbbM" HorizontalAlignment="Left" Margin="254,152,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+                <Button x:Name="btnAddIng" Content="Add Ingredient" HorizontalAlignment="Left" Margin="41,274,0,0" VerticalAlignment="Top" Width="333" Click="btnAddIng_Click"/>
+                <Button x:Name="btnAddStep" Content="Add Step" HorizontalAlignment="Left" Margin="41,433,0,0" VerticalAlignment="Top" Width="333" Click="btnAddStep_Click"/>
+                <Label Content="Ingredient_Added :" HorizontalAlignment="Left" Margin="546,48,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnCreate" Content="Finish Recipe" HorizontalAlignment="Left" Margin="40,475,0,0" VerticalAlignment="Top" Height="34" Width="697" Click="btnCreate_Click"/>
+                <Label Content="Recipe Name :" HorizontalAlignment="Left" Margin="302,8,0,0" VerticalAlignment="Top" Width="90"/>
+                <TextBox x:Name="txtR" HorizontalAlignment="Left" Margin="397,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Steps Added :" HorizontalAlignment="Left" Margin="557,261,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnInfo1" Content="Info" HorizontalAlignment="Left" Margin="673,12,0,0" VerticalAlignment="Top" Width="65" Height="22" Click="btnInfoC_Click"/>
+                <TextBox x:Name="tbI" HorizontalAlignment="Left" Margin="455,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="169"/>
+                <TextBox x:Name="tbS" HorizontalAlignment="Left" Margin="455,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="169"/>
+                <Label Content="Add a step for the recipe below:" HorizontalAlignment="Left" Margin="118,309,0,0" VerticalAlignment="Top"/>
+                <Label Content="Add ingredients below:" HorizontalAlignment="Left" Margin="141,53,0,0" VerticalAlignment="Top"/>
+                <Label Content="Recipe Creator" HorizontalAlignment="Left" Margin="41,11,0,0" VerticalAlignment="Top" Height="42" Width="156" FontSize="22"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="View Recipes">
+            <Grid Background="#FFE5E5E5">
+                <Button x:Name="btnView" Content="View All Recipes" HorizontalAlignment="Left" Margin="266,311,0,0" VerticalAlignment="Top" Width="492" Click="btnView_Click" Height="38"/>
+                <Button x:Name="btnFilter" Content="Filter Recipe" HorizontalAlignment="Left" Margin="21,213,0,0" VerticalAlignment="Top" Width="227" Click="btnFilter_Click"/>
+                <ComboBox x:Name="cbbFF" HorizontalAlignment="Left" Margin="128,181,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0" Height="19" Visibility="Collapsed"/>
+                <Label x:Name="lblF" Content="Food Group :" HorizontalAlignment="Left" Margin="21,175,0,0" VerticalAlignment="Top" Width="91" Visibility="Collapsed"/>
+                <Label x:Name="lblC" Content="Max Calories :" HorizontalAlignment="Left" Margin="20,175,0,0" VerticalAlignment="Top" Width="91" Visibility="Collapsed"/>
+                <Label x:Name="lblI" Content="Ingredient :" HorizontalAlignment="Left" Margin="20,174,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+                <TextBox x:Name="txtFIng" HorizontalAlignment="Left" Margin="128,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Collapsed"/>
+                <TextBox x:Name="txtFMaxC" HorizontalAlignment="Left" Margin="128,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Collapsed"/>
+                <Button x:Name="btnDelete" Content="Delete Recipe" HorizontalAlignment="Left" Margin="19,329,0,0" VerticalAlignment="Top" IsCancel="True" Width="227" Click="btnDelete_Click"/>
+                <TextBox x:Name="txtDisplay" HorizontalAlignment="Left" Margin="266,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="492" Height="213"/>
+                <Label Content="Recipe Name : " HorizontalAlignment="Left" Margin="19,298,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtDelete" HorizontalAlignment="Left" Margin="126,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Filter recipes with the details below:" HorizontalAlignment="Left" Margin="33,65,0,0" VerticalAlignment="Top"/>
+                <Label Content="Enter the recipe you would like to delete:" HorizontalAlignment="Left" Margin="21,254,0,0" VerticalAlignment="Top"/>
+                <Label Content="View the recipes below here:" HorizontalAlignment="Left" Margin="439,52,0,0" VerticalAlignment="Top"/>
+                <Label Content="Recipe Viewer" HorizontalAlignment="Left" Margin="266,10,0,0" VerticalAlignment="Top" Height="42" Width="156" FontSize="22"/>
+                <Label Content="Scale recipe quantities:" HorizontalAlignment="Left" Margin="69,374,0,0" VerticalAlignment="Top"/>
+                <Label Content="Recipe Name:" HorizontalAlignment="Left" Margin="21,425,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtSName" HorizontalAlignment="Left" Margin="126,429,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Scaling Amount" HorizontalAlignment="Left" Margin="21,456,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cbbS" HorizontalAlignment="Left" Margin="126,458,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+                <Button x:Name="btnScale" Content="Scale" HorizontalAlignment="Left" Margin="99,492,0,0" VerticalAlignment="Top" Width="70" Click="btnScale_Click" IsEnabled="False"/>
+                <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="174,492,0,0" VerticalAlignment="Top" Width="72" Click="btnReset_Click" IsEnabled="False"/>
+                <Button x:Name="btnSView" Content="View" HorizontalAlignment="Left" Margin="21,492,0,0" VerticalAlignment="Top" Width="73" Click="btnSView_Click"/>
+                <TextBox x:Name="txtScale" HorizontalAlignment="Left" Margin="266,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="492" Height="145"/>
+                <Label Content="Scaled recipe display:" HorizontalAlignment="Left" Margin="459,361,0,0" VerticalAlignment="Top"/>
+                <Label Content="(View recipe before Displaying)" HorizontalAlignment="Left" Margin="61,392,0,0" VerticalAlignment="Top" FontSize="10"/>
+                <Button x:Name="btnConfirm" Content="Confirm Scaling" HorizontalAlignment="Left" Margin="21,517,0,0" VerticalAlignment="Top" Width="225" Click="Button_Click" IsEnabled="False"/>
+                <Button x:Name="infoV" Content="Info" HorizontalAlignment="Left" Margin="688,16,0,0" VerticalAlignment="Top" Width="70" Click="infoV_Click"/>
+                <ComboBox x:Name="cbbFilter" HorizontalAlignment="Left" Margin="128,117,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0"/>
+                <Label Content="Filter Selected :" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top"/>
+                <Label Content="(select filter option)" HorizontalAlignment="Left" Margin="84,87,0,0" VerticalAlignment="Top" FontSize="10"/>
+                <Button Content="Select Filter Option" HorizontalAlignment="Left" Margin="21,146,0,0" VerticalAlignment="Top" Width="227" Click="Button_Click_1"/>
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+</Window>

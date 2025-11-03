@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/darkblue"
+tools:context=".MyBudgetPage">
+
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Personal Budgets"
+    android:textColor="@color/white"
+    android:textSize="35sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.496"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.023" />
+
+<Button
+    android:id="@+id/btnReturnFromPersonalBudget"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/blue"
+    android:text="Return"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.25"
+    app:layout_constraintStart_toStartOf="parent" />
+
+<Button
+    android:id="@+id/btnAddPersonalBudget"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/blue"
+    android:text="Add"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.746"
+    app:layout_constraintStart_toStartOf="parent" />
+
+<TextView
+    android:id="@+id/txtMingoal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="Min Goal: 0"
+    android:textColor="@color/white"
+    android:textSize="18dp"
+    app:layout_constraintEnd_toStartOf="@+id/txtMaxGoal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+<TextView
+    android:id="@+id/txtMaxGoal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="Max Goal: 0"
+    android:textColor="@color/white"
+    android:textSize="18dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="@+id/edMaxGoal"
+    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+<TextView
+    android:id="@+id/textView28"
+    android:layout_width="250dp"
+    android:layout_height="37dp"
+    android:layout_marginTop="10dp"
+    android:text="Monthly spend goals"
+    android:textColor="@color/white"
+    android:textSize="24dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+<TextView
+    android:id="@+id/txtExpenseEntries"
+    android:layout_width="250dp"
+    android:layout_height="37dp"
+    android:layout_marginTop="236dp"
+    android:text="All expense entries"
+    android:textAlignment="center"
+    android:textColor="@color/white"
+    android:textSize="24dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.496"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+<Button
+    android:id="@+id/btnChangeMinMax"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="130dp"
+    android:text="Change Goals"
+    android:textColor="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+<Button
+    android:id="@+id/btnEnd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="252dp"
+    android:text="End Date"
+    android:textColor="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.843"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+<Button
+    android:id="@+id/btnConfrimDate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="300dp"
+    android:text="Confrim Date"
+    android:textColor="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+<Button
+    android:id="@+id/btnStart"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="252dp"
+    android:text="StartDate"
+    android:textColor="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.145"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+<EditText
+    android:id="@+id/edMinGoal"
+    android:layout_width="114dp"
+    android:layout_height="51dp"
+    android:layout_marginTop="15dp"
+    android:ems="10"
+    android:hint="change min"
+    android:textColor="@color/white"
+    android:textColorHint="@color/white"
+    android:inputType="text"
+    app:layout_constraintEnd_toStartOf="@+id/edMaxGoal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtMingoal" />
+
+<EditText
+    android:id="@+id/edMaxGoal"
+    android:layout_width="121dp"
+    android:layout_height="51dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="50dp"
+    android:ems="10"
+    android:hint="change max"
+    android:textColor="@color/white"
+    android:textColorHint="@color/white"
+    android:inputType="text"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtMaxGoal"/>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvExpenses"
+    android:layout_width="414dp"
+    android:layout_height="195dp"
+    android:layout_marginTop="136dp"
+    android:background="@color/white"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/txtExpenseEntries" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

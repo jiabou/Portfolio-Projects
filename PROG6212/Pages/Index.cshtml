@@ -1,0 +1,83 @@
+﻿@page
+@model IndexModel
+<style> /* (w3Schools, ND) */
+    .container {
+        padding: 16px;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    div.type{
+        float:right;
+        padding: 14px, 20px;
+        margin: 8px 0;
+    }
+</style>
+
+<body>  @* (w3Schools, ND) *@
+    <h2 style="text-align:center">Login Page</h2>
+<form method="post">
+    <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+    
+        <div class="type">
+            <label style="font-weight:bold" for="type">Select Login Type</label>
+                <select style="width:200px" name="type" id="tpye">
+                <option value="l">Lecturer</option>
+                <option value="pc">Project Coordinator</option>
+                <option value="am">Academic Manager</option>
+                <option value="hr">HR</option>
+                </select>
+         </div>
+
+        <button type="submit">Login</button>
+        <br />
+    </div>
+        <p style="float:right">Forgot <a href="#">password?</a></p>
+</form>
+    @if (Model.loginFlag == false)
+    {
+        <div class='alert alert-danger alert-dismissible fade show' role="alert" style="padding=50px">
+            <strong>Invalid username or password.</strong>
+            <button type="button" class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+    }
+</body>
+
+
+
+
+

@@ -1,0 +1,106 @@
+﻿@page
+@model st10209811_PROG6212_Part1.Pages.PCModel
+<style> /* (w3Schools, ND) */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .container {
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    input[type=number] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>  @* (w3Schools, ND) *@
+    <form method="post" asp-page-handler="Logout">
+    <button style="float:right">Log Out</button>
+    </form>
+    <h2 style="text-align:center">Verify Page</h2> 
+    <h5 style="color:dodgerblue">Welcome @Model.name</h5>
+    <div class="container">
+            <label style="font-weight:bold" for="selectID">Select ID to search by :</label>
+            <select id="selectID" name="selectID">
+                <option value="claimID">Claim ID</option>
+                <option value="lecturerID">Lecturer ID</option>
+            </select>
+            <br />
+            <label style="font-weight:bold" for="searchID">Enter ID to search</label>
+            <input type="text" id="searchID" name="searchID" placeholder="Enter ID..">
+            <br />
+            <button style="width:100%">Search</button>
+            <br />
+            <br />
+
+        <table class="table" style="background-color:azure"
+                <thead style="text-align:center">
+                    <tr>
+                        <th>Claim ID</th>
+                        <th>Lecturer</th>
+                        <th>Lecturer ID</th>
+                        <th>Amount</th>
+                        <th>Notes</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model.claims)
+                    {
+                        <tr>
+                            <td>@item.claimID</td>
+                            <td>@item.lecturer</td>
+                            <td>@item.lecturerID</td>
+                            <td>R @item.amount</td>
+                            <td>@item.notes</td>
+                            <td>@item.status</td>
+                            <td>
+                                    <form method="post" asp-page-handler="VerifyClick">
+                                        <button type="submit" name="v" value="@item.claimID">Verify</button>
+                                    </form>
+                                    <form method="post" asp-page-handler="RejectClick">
+                                        <button type="submit" name="r" value="@item.claimID">Reject</button>
+                                    </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+    </div>
+</body>

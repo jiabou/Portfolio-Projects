@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/ShapeAppearance.Material3.Tooltip"
+        tools:targetApi="31">
+        <activity
+            android:name=".View.UserBookingsActivity"
+            android:theme="@style/Theme.HustleHub"
+            android:exported="false" />
+        <activity
+            android:name=".View.ServiceManagementActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.UserManagementActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.admin_portal"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.ReportUserActvity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.ProviderBookings"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.RegisterService"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.AboutUsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.BookServiceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.CategoriesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.ChatActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.ContactActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.OfferSkillsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.BrowseServicesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HustleHub" />
+        <activity
+            android:name=".View.AccountActivity"
+            android:exported="true"
+            android:theme="@style/Theme.HustleHub">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".ViewModel.FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

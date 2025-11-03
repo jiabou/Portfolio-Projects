@@ -1,0 +1,30 @@
+﻿@page
+@model ABCRetail.Pages.CartModel
+<link href="~/css/cart.css" rel="stylesheet" />
+
+<div class="container-fluid  mt-100">
+<div class="row">
+
+	<div class="col-md-12">
+
+		<div class="card">
+			<div class="card-header" style="text-align:center">
+				<h1 style="font-size:80px;font-style:oblique;font-weight:bolder">My Cart</h1>
+			</div>
+			<div class="card-body cart">
+				<div class="col-sm-12 empty-cart-cls text-center">
+					<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+					<h3><strong>Your Cart is Empty</strong></h3>
+					<h4>Add something to make me happy :)</h4>
+						<a asp-area="" asp-page="/Store" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Go to Store</a>
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+</div>
+</div>
