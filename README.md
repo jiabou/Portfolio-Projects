@@ -9,13 +9,13 @@ This repo contains a collection of my college and personal projects and group pr
 
 | Project  | Personal/Group | Description | Tech Stack | Link |
 |----------|----------|--------------|-------------|------|
-| **CLDV6212** | Personal Project | Wed app for a retail store that is hosted via Azure. | C#, Azure, ASP.NET Core | [View](https://github.com/VCPTA/bca2-cldv6212-poe-submission-jiabou/tree/master) |
-| **PROG6212** | Personal Project | Web app for a Contract Monthly Claims System for lecturers. | C#, ASP.NET Core, MySQL | [View](https://github.com/VCPTA/bca2-prog6212-poe-submission-jiabou/tree/master) |
-| **PROG6221** | Personal Project | Console App for storing igredients and steps of recipes. | C# | [View](https://github.com/VCPTA/bca2-prog6221-poe-submission-jiabou.git) |
-| **PROG7312** | Personal Project | Desktop app created for a muncipality that displays events, takes report and shows service request status. (In-development) | C#, .NET | [View](https://github.com/VCPTA/bca3-prog7313-portfolio-of-evidence-poe-jiabou.git) |
+| **CLDV6212** | Individual Project | Wed app for a retail store that is hosted via Azure. | C#, Azure, ASP.NET Core | [View](https://github.com/VCPTA/bca2-cldv6212-poe-submission-jiabou/tree/master) |
+| **PROG6212** | Individual Project | Web app for a Contract Monthly Claims System for lecturers. | C#, ASP.NET Core, MySQL | [View](https://github.com/VCPTA/bca2-prog6212-poe-submission-jiabou/tree/master) |
+| **PROG6221** | Individual Project | Console App for storing igredients and steps of recipes. | C# | [View](https://github.com/VCPTA/bca2-prog6221-poe-submission-jiabou.git) |
+| **PROG7312** | Individual Project | Desktop app created for a muncipality that displays events, takes report and shows service request status. | C#, .NET | [View](https://github.com/VCPTA/bca3-prog7312-poe-submission-jiabou) |
 | **PROG7313** | Group Project | Android app for a montly budgeting with expense tracking. | Kotlin, Firebase | [View](https://github.com/VCPTA/bca3-prog7313-portfolio-of-evidence-poe-jiabou.git) |
-| **PROG7314** | Group Project | Adroid fitness app that tracks calories and shows different workouts. (In-development) | Kotlin, Firebase, REST API | [View](https://github.com/jiabou/PROG7314.git) |
-| **INSY7314** | Group Project | Web app for a worker and customer portal for security implementation. (In-development) | C#, .NET, GitHub Actions | [View](https://github.com/Silver-Pond/INSY7314_PPOE_Part_2.git) |
+| **PROG7314** | Group Project | Adroid fitness app that tracks calories and shows different workouts. | Kotlin, Firebase, REST API | [View](https://github.com/jiabou/PROG7314) |
+| **INSY7314** | Group Project | Web app for a worker and customer portal for security implementation. | C#, .NET, GitHub Actions | [View](https://github.com/jiabou/INSY7314_POE) |
 | **INSY7315** | Group Project | Anroid app which is HustleHub, a platform created for students to become clients and providers. | Kotlin, Firebase, REST API, GitHub Actions | [View](https://github.com/st10258321/INSY7315.git) |
 
 ---
